@@ -8,7 +8,14 @@
 
       <l-control class="example-custom-control">
         <div class="date-selector-container">
-          <input class="date-selector" v-model="selectedDate" :min="minDate" :max="maxDate" type="date">
+          <input
+            class="date-selector"
+            type="date"
+            :value="dateToYYYYMMDD(selectedDate)"
+            @input="selectedDate = $event.target.valueAsDate"
+            :min="dateToYYYYMMDD(minDate)"
+            :max="dateToYYYYMMDD(maxDate)"
+          >
         </div>
       </l-control>
 
@@ -35,7 +42,7 @@ export default {
       center: [47.413220, -1.219482],
       bounds: null,
       icon: fireIcon,
-      selectedDate: ''
+      selectedDate: this.minDate
     }
   },
   components: {
@@ -62,15 +69,12 @@ export default {
   },
   computed: {
     minDate () {
-      const dates = this.getMarkersDates()
-      const minDate = new Date(Math.min(...dates))
-      console.log(formatDate(minDate))
-      return formatDate(minDate)
+      const minDate = new Date(Math.min(...this.getMarkersDates()))
+      return minDate
     },
     maxDate () {
-      const dates = this.getMarkersDates()
-      const maxDate = new Date(Math.max(...dates))
-      return formatDate(maxDate)
+      const maxDate = new Date(Math.max(...this.getMarkersDates()))
+      return maxDate
     }
   }
 }
