@@ -25,14 +25,30 @@
 }
 
 #nav {
+  display: flex;
+  height: 60px;
   background-color: #e0503d;
+  justify-content: center;
+  list-style: none;
+  align-items: flex-end;
 
-  a {
-    font-weight: bold;
+  li {
+    display: flex;
+    justify-content: center;
+    height: 68.5%;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    a {
+      font-weight: bold;
       color: #fff1f1;
+      text-decoration: none;
 
-    &.router-link-exact-active {
-      color: #42b983;
+      &.router-link-exact-active {
+        border-bottom: 4px solid #fff1f1f1;
+      }
     }
   }
 }
