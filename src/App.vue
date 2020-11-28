@@ -12,11 +12,11 @@
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #333;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -25,11 +25,11 @@
 }
 
 #nav {
-  padding: 30px;
+  background-color: #e0503d;
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+      color: #fff1f1;
 
     &.router-link-exact-active {
       color: #42b983;
