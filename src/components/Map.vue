@@ -9,12 +9,14 @@
       <div v-for="(marker, index) in markers" :key="index">
         <l-marker
           :lat-lng="Object.values(marker)"
+          :icon="icon"
         ></l-marker>
       </div>
     </l-map>
   </div>
 </template>
 
+import fireIcon from '@/leaflet/fireIcon'
 export default {
   name: 'Map',
   data () {
@@ -23,6 +25,7 @@ export default {
       zoom: 3,
       center: [47.413220, -1.219482],
       bounds: null,
+      icon: fireIcon,
       selectedDate: ''
     }
   },
