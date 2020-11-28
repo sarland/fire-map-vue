@@ -17,8 +17,16 @@ export default {
   components: {
     Map
   },
+  async created () {
+    const API_URL = 'http://localhost:8080/data/s2impact-global-fire-21-28-agosto.json'
+
+    try {
+      const response = await fetch(API_URL)
+      this.fires = await response.json()
+    } catch (err) {
+      alert(err) // Failed to fetch
+    }
   }
-}
 }
 </script>
 
