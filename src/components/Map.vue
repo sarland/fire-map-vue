@@ -26,14 +26,6 @@
 import { LMap, LTileLayer, LControl, LMarker } from '@vue-leaflet/vue-leaflet'
 import fireIcon from '@/leaflet/fireIcon'
 
-// Format date to input format
-function formatDate (date) {
-  const fullYear = date.getFullYear()
-  const month = ('0' + (date.getMonth() + 1)).slice(-2)
-  const dayOfMonth = ('0' + date.getDate()).slice(-2)
-  return `${fullYear}-${month}-${dayOfMonth}`
-}
-
 export default {
   name: 'Map',
   data () {
@@ -59,6 +51,13 @@ export default {
   methods: {
     getMarkersDates () {
       return this.markers.map(marker => new Date(marker.date))
+    },
+    dateToYYYYMMDD (date) {
+      date = new Date(date)
+      const fullYear = date.getFullYear()
+      const month = ('0' + (date.getMonth() + 1)).slice(-2)
+      const dayOfMonth = ('0' + date.getDate()).slice(-2)
+      return `${fullYear}-${month}-${dayOfMonth}`
     }
   },
   computed: {
