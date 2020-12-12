@@ -6,7 +6,7 @@
     >
       <l-tile-layer :url="url"></l-tile-layer>
 
-      <l-control class="example-custom-control">
+      <l-control class="date-control">
         <div class="date-selector-container">
           <input
             class="date-selector"
