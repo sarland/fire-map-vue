@@ -33,6 +33,7 @@
 
 <script>
 import { LMap, LTileLayer, LControl, LMarker, LPopup } from '@vue-leaflet/vue-leaflet'
+import fireIcon from '@/components/leaflet/fireIcon'
 
 export default {
   name: 'Map',
