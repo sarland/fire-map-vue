@@ -11,15 +11,14 @@
           <input
             class="date-selector"
             type="date"
-            :value="dateToYYYYMMDD(selectedDate)"
-            @input="selectedDate = $event.target.valueAsDate"
+            v-model="selectedDate"
             :min="dateToYYYYMMDD(minDate)"
             :max="dateToYYYYMMDD(maxDate)"
           >
         </div>
       </l-control>
 
-      <div v-for="(marker, index) in markers" :key="index">
+      <div v-for="(marker, index) in filteredMarkers" :key="index">
         <l-marker
           :lat-lng="Object.values(marker)"
           :icon="icon"
@@ -78,6 +77,13 @@ export default {
     maxDate () {
       const maxDate = new Date(Math.max(...this.getMarkersDates()))
       return maxDate
+    },
+    filteredMarkers () {
+      if (this.selectedDate) {
+        return this.markers.filter(marker => marker.date === this.selectedDate)
+      } else {
+        return this.markers
+      }
     }
   }
 }
