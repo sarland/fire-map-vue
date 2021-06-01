@@ -6,7 +6,7 @@
     >
       <l-tile-layer :url="url"></l-tile-layer>
 
-      <l-control class="example-custom-control">
+      <l-control class="date-control">
         <div class="date-selector-container">
           <input
             class="date-selector"
@@ -23,15 +23,17 @@
         <l-marker
           :lat-lng="Object.values(marker)"
           :icon="icon"
-        ></l-marker>
+        >
+          <l-popup><b>Date:</b> {{ marker.date }}</l-popup>
+        </l-marker>
       </div>
     </l-map>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LControl, LMarker } from '@vue-leaflet/vue-leaflet'
-import fireIcon from '@/leaflet/fireIcon'
+import { LMap, LTileLayer, LControl, LMarker, LPopup } from '@vue-leaflet/vue-leaflet'
+import fireIcon from '@/components/leaflet/fireIcon'
 
 export default {
   name: 'Map',
@@ -49,7 +51,8 @@ export default {
     LMap,
     LTileLayer,
     LControl,
-    LMarker
+    LMarker,
+    LPopup
   },
   props: {
     title: String,

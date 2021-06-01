@@ -7,5 +7,5 @@ export default L.icon({
   shadowSize: [50, 64],
   iconAnchor: [12, 30],
   // shadowAnchor: [12, 20],
-  popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+  popupAnchor: [2, -32]
 })
